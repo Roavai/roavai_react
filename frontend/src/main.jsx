@@ -1,0 +1,11 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './styles/index.css' //Tailwind (with @import "tailwindcss")
+//import './App.css' // Optional custom overrides
+import App from './App.jsx' 
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)

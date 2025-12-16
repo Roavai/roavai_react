@@ -1,0 +1,51 @@
+// server/server.js
+// import "dotenv/config";
+const express = require("express");
+const { google } = require("googleapis");
+require("dotenv").config();
+
+const app = express();
+app.use(express.json());
+
+app.post("/api/contact", async (req, res) => {
+  const { name, email, message } = req.body || {};
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: "Missing fields" });
+  }
+
+  try {
+    const credentials = JSON.parse(
+      Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, "base64").toString(
+        "utf8"
+      )
+    );
+
+    // const sheetId = Buffer.from(process.env.SHEET_ID_BASE64, "base64").toString(
+    //   "utf8"
+    // );
+
+    const auth = new google.auth.GoogleAuth({
+      credentials,
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
+
+    const sheets = google.sheets({ version: "v4", auth });
+
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: credentials.sheet_id,
+      range: "Sheet1!A:C",
+      valueInputOption: "USER_ENTERED",
+      requestBody: {
+        values: [[new Date().toISOString(), name, email, message]],
+      },
+    });
+
+    res.json({ message: "Success!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message || "Server error" });
+  }
+});
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`API running on http://localhost:${PORT}`));

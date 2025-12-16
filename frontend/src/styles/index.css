@@ -1,0 +1,392 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+.nav-link-cursor {
+  cursor: pointer;
+  /* base */
+}
+
+/* Optional: make it feel more “sci‑fi” */
+.nav-link-cursor:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.nav-link-font {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+
+.heroTextRow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 6vh;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.introLine {
+  font-family: "Orbitron", system-ui;
+  letter-spacing: 3px;
+  font-size: 1.1rem;
+  color: #ffffffc0;
+  text-transform: uppercase;
+}
+
+.taglineLine {
+  font-family: "Orbitron", system-ui;
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  color: #ffffffb0;
+  margin-top: 0.5rem;
+}
+
+/* slide from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* slide from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-intro-left {
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out 1.5s forwards;
+}
+
+.slide-tagline-right {
+  opacity: 0;
+  animation: slideInRight 0.8s ease-out 2s forwards;
+}
+
+.heroMidTextRow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  /* vertical center */
+  justify-content: center;
+  /* we offset inside */
+  z-index: 30;
+  pointer-events: none;
+}
+
+.heroMidOffsetTitle {
+  transform: translate(12px, 10px);
+  /* +x → right, -x → left */
+}
+
+.heroMidOffsetTagline {
+  transform: translate(-10px, 10px);
+  /* +x → right, -x → left */
+}
+/*-----*/
+.heroMidOffset {
+  transform: translate(0, 0);
+  /* centered on mobile */
+}
+
+@media (min-width: 768px) {
+  .heroMidOffset {
+    transform: translate(40px, 20px);
+    /* offset only on bigger screens */
+  }
+}
+/*-----*/
+
+.heroMidInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Left line: stays left of center */
+.introLineMid {
+  font-family: "fascinate", system-ui;
+  letter-spacing: 3px;
+  font-size: 12vh;
+  font-weight: 600;
+  color: #ffffffd0;
+  text-transform: uppercase;
+  text-align: right;
+  white-space: nowrap;
+  margin-right: 16rem;
+  /* horizontal offset from center */
+}
+
+/* Right line: stays right of center */
+.taglineLineMid {
+  font-family: "Orbitron", system-ui;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffffbf;
+  text-align: left;
+  max-width: 28rem;
+  margin-left: 16rem;
+  /* horizontal offset from center */
+}
+
+/* slide animations keep same end position now */
+@keyframes slideInLeftMid {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRightMid {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-intro-left-mid {
+  opacity: 0;
+  animation: slideInLeftMid 0.9s ease-out 1.3s forwards;
+}
+
+.slide-tagline-right-mid {
+  opacity: 0;
+  animation: slideInRightMid 0.9s ease-out 1.7s forwards;
+}
+
+/* ==================================== */
+/* 1. Base Button Styles */
+/* ==================================== */
+.explore-button {
+  /* Layout and Text */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  /* Adjust padding to match the size you want */
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+
+  /* Initial Colors */
+  color: #fff;
+  /* White text initially */
+  background: transparent;
+  border: 1px solid #fff;
+  /* White border defines the initial shape */
+
+  /* Positioning for the animation */
+  position: relative;
+  overflow: hidden;
+  /* Important: keeps the pseudo-elements contained */
+  z-index: 1;
+  /* Ensures text is layered above the fill */
+
+  /* Transition for text color */
+  transition: color 0.4s ease-in-out;
+}
+
+/* ==================================== */
+/* 2. Pseudo-elements for the Fill Lines */
+/* ==================================== */
+/* Creates two expanding white blocks (the "lines") */
+.explore-button::before,
+.explore-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0;
+  /* Start with zero height (the initial 'line') */
+  left: 0;
+  background: #fff;
+  /* White fill color */
+
+  /* Place behind the text */
+  z-index: -1;
+
+  /* Animation transition */
+  transition: height 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Top line filling downwards */
+.explore-button::before {
+  top: 0;
+}
+
+/* Bottom line filling upwards (simulates opposite direction) */
+.explore-button::after {
+  bottom: 0;
+  /* Adding a slight delay enhances the "opposite directions" look */
+  transition-delay: 0.05s;
+}
+
+/* ==================================== */
+/* 3. Hover State (The Animation) */
+/* ==================================== */
+.explore-button:hover {
+  color: #000;
+  /* Text changes to black */
+}
+
+/* On hover, both pseudo-elements expand to 50% height, meeting in the middle
+   and covering the button with white. */
+.explore-button:hover::before {
+  height: 50%;
+  /* Top half fills */
+}
+
+.explore-button:hover::after {
+  height: 50%;
+  /* Bottom half fills */
+}
+
+
+/* .petName {
+  font-family: "Fascinate", system-ui;
+  font-size: 8vh;
+  color: #ffffffb3;
+  line-height: 1;
+  margin: 0;
+} */
+
+.petName {
+  font-family: "Fascinate", system-ui;
+  color: #ffffffb3;
+  line-height: 1;
+  margin: 0;
+  font-size: 8vh;
+  /* default for mobile */
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .petName {
+    font-size: 12vh;
+    /* large only on tablets/desktop */
+  }
+}
+
+.taglineBlock {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: "Orbitron", system-ui;
+  color: #ffffffc0;
+  font-size: 0.8rem;
+  /* smaller on mobile */
+  letter-spacing: 0.08em;
+  text-align: center;
+  align-items: center;
+}
+
+.tagLine {
+  white-space: normal;
+  /* allow wrapping on small screens */
+}
+
+@media (min-width: 768px) {
+  .taglineBlock {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .tagLine {
+    white-space: nowrap;
+    /* single-line per row on desktop */
+  }
+}
+
+/* .taglineBlock {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: "Orbitron", system-ui;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: #ffffffc0;
+}
+
+.tagLine {
+  white-space: nowrap;
+}
+
+
+.tagLine {
+  opacity: 0;
+  white-space: nowrap;
+} */
+
+
+
+
+/* slide in from left */
+@keyframes slideInH {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* staggered timings */
+.tagLine-1 {
+  animation: slideInH 0.6s ease-out 1.6s forwards;
+}
+
+.tagLine-2 {
+  animation: slideInH 0.6s ease-out 1.9s forwards;
+}
+
+.tagLine-3 {
+  animation: slideInH 0.6s ease-out 2.2s forwards;
+}
+
+.tagLine-4 {
+  animation: slideInH 0.6s ease-out 2.5s forwards;
+}
+
+.tagLine-5 {
+  animation: slideInH 0.6s ease-out 2.8s forwards;
+}
