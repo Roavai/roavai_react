@@ -1,22 +1,22 @@
+import Hero from './Hero.jsx'
 import About from './About.jsx'
 import Contact from './Contact.jsx'
-import MobileHero from '../components/MobileHero.jsx'
-import DesktopHero from '../components/DesktopHero.jsx'
-
+import Product from './Product.jsx'
 
 function Home() {
 
     return (
         <>
-            <div id="home">
-
-                <div className="md:hidden">
-                    <MobileHero />
+            <section>
+                <div id="home">
+                    <Hero />
                 </div>
-                <div className="hidden md:block">
-                    <DesktopHero />
+            </section>
+            <section>
+                <div id="product">
+                    <Product />
                 </div>
-            </div>
+            </section>
             <section>
                 <div id="about">
                     <About />

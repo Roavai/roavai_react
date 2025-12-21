@@ -4,7 +4,6 @@ import MainLayout from './layouts/MainLayout'
 import MinimalLayout from './layouts/MinimalLayout'
 import Home from './pages/Home'
 import Explore from './pages/subpages/explore.jsx'
-//import NotFound from './pages/NotFound'
 
 export default function Router() {
     return (
@@ -15,13 +14,11 @@ export default function Router() {
                     <Route path="/" element={<Home />} />
                 </Route>
 
-                {/* Extra pages with only logo + back button */}
+                {/* Extra pages with only logo + back button + footer*/}
                 <Route element={<MinimalLayout />}>
                     <Route path="/explore" element={<Explore />} />
                     {/* add more minimal pages here */}
                 </Route>
-
-                {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
         </BrowserRouter>
     )

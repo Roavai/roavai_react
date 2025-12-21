@@ -1,10 +1,13 @@
-// server/server.js
 // import "dotenv/config";
 const express = require("express");
+const cors = require('cors')
 const { google } = require("googleapis");
 require("dotenv").config();
 
 const app = express();
+
+app.use(cors({ origin: 'http://localhost:5173' })) // allow your Vite dev URL
+
 app.use(express.json());
 
 app.post("/api/contact", async (req, res) => {

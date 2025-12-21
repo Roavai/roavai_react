@@ -24,10 +24,9 @@ function DesktopHero() {
 
     return (
 
-        < section className="relative min-h-[calc(100vh)] overflow-hidden bg-black h-full" >
+        < section className="relative min-h-screen overflow-hidden bg-black h-full" >
 
             <div>
-
                 <video
                     src={robotVideo}
                     autoPlay
@@ -38,35 +37,33 @@ function DesktopHero() {
                 <div className="heroMidTextRow">
 
                     <div className="heroMidInner">
-                        <div className="heroMidOffsetTitle">
-                            <p className="introLineMid slide-intro-left-mid">
-                                <motion.h1
-                                    className="petName"
-                                    initial={{ opacity: 0, y: 16 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1, delay: 1.2 }}
-                                >
-                                    Wini
-                                </motion.h1>
-                            </p>
+                        <div>
+                            <motion.h1
+                                className="introLineMid slide-intro-left-mid"
+                                initial={{ opacity: 0, y: 16 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1, delay: 1.2 }}
+                            >
+                                Wini
+                            </motion.h1>
                         </div>
-                        <div className="heroMidOffsetTagline">
+                        <div>
                             <motion.div
                                 className="taglineBlock"
                                 variants={taglineParent}
                                 initial="hidden"
                                 animate="visible"
                             >
-                                <motion.span className="tagLine" variants={taglineLine}>
+                                <motion.span variants={taglineLine}>
                                     A robot that
                                 </motion.span>
-                                <motion.span className="tagLine" variants={taglineLine}>
+                                <motion.span variants={taglineLine}>
                                     learns,
                                 </motion.span>
-                                <motion.span className="tagLine" variants={taglineLine}>
+                                <motion.span variants={taglineLine}>
                                     plays,
                                 </motion.span>
-                                <motion.span className="tagLine" variants={taglineLine}>
+                                <motion.span variants={taglineLine}>
                                     and lives with you
                                 </motion.span>
                             </motion.div>

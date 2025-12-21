@@ -29,7 +29,7 @@ function About() {
                 </p>
 
                 {/* Explore button */}
-                <a href="/explore" class="explore-button">
+                <a href="/explore" className="explore-button">
                     Explore
                 </a>
             </div>

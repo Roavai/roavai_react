@@ -19,20 +19,27 @@ function MobileHero() {
 
             <div className="relative z-20 flex h-full flex-col items-center justify-center pt-20 px-4 text-center pointer-events-none">
                 <motion.h1
-                    className="petName text-[6vh] leading-none mb-3 pointer-events-auto"
+                    className="hero-name-mobile text-[6vh] leading-none mb-3 pointer-events-auto"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+                    transition={{ duration: 0.8, ease: 'easeOut', delay: 1.5 }}
                 >
                     Wini
                 </motion.h1>
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: 'easeOut', delay: 0.5 }}
-                    className="text-[0.8rem] leading-relaxed tracking-[0.12em] text-white/85 pointer-events-auto"
+                    transition={{ duration: 0.8, ease: 'easeOut', delay: 1.8 }}
+                    className="font-orbitron text-[1rem] leading-relaxed tracking-[0.12em] text-white/85 pointer-events-auto"
                 >
-                    <div className="font-medium">A robot that learns,</div>
+                    <div>A robot that learns,</div>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: 'easeOut', delay: 2.0 }}
+                    className="font-orbitron text-[1rem] leading-relaxed tracking-[0.12em] text-white/85 pointer-events-auto"
+                >
                     <div>plays and lives with you.</div>
                 </motion.div>
             </div>
