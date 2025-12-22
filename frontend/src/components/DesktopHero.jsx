@@ -54,16 +54,16 @@ function DesktopHero() {
                                 initial="hidden"
                                 animate="visible"
                             >
-                                <motion.span variants={taglineLine}>
+                                <motion.span className='text-lg' variants={taglineLine}>
                                     A robot that
                                 </motion.span>
-                                <motion.span variants={taglineLine}>
+                                <motion.span className='text-lg' variants={taglineLine}>
                                     learns,
                                 </motion.span>
-                                <motion.span variants={taglineLine}>
+                                <motion.span className='text-lg' variants={taglineLine}>
                                     plays,
                                 </motion.span>
-                                <motion.span variants={taglineLine}>
+                                <motion.span className='text-lg' variants={taglineLine}>
                                     and lives with you
                                 </motion.span>
                             </motion.div>
