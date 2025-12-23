@@ -12,7 +12,7 @@ function Footer() {
                                 <img src={ROAVAI} className="h-30 w-30" alt="Roavai with pet Logo" />
                             </a>
                         </div>
-                        <div className="nav-link-font grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+                        <div className="nav-link-font grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                             <div>
                                 <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Company</h2>
                                 <ul className="text-body font-small">
@@ -22,21 +22,10 @@ function Footer() {
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Resources</h2>
-                                <ul className="text-body font-small">
-                                    <li className="mb-4">
-                                        <a href="#" className="nav-link-cursor">Flowbite</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://tailwindcss.com/" className="nav-link-cursor">Tailwind CSS</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
                                 <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Follow us</h2>
                                 <ul className="text-body text-md font-small">
                                     <li className="mb-4">
-                                        <a href="https://github.com/themesberg/flowbite" className="nav-link-cursor">Github</a>
+                                        <a href="https://github.com/Roavai/roavai_react" className="nav-link-cursor">Github</a>
                                     </li>
                                     <li>
                                         <a href="https://discord.gg/4eeurUVvTy" className="nav-link-cursor">Discord</a>
