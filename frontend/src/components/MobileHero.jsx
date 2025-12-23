@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import robotVideo from '../assets/robowink5.mp4'
-import heroPoster from '../assets/Images/robowink5last.png'
+import heroPoster from '../assets/images/robowink5last.png'
 
 
 function MobileHero() {
