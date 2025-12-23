@@ -1,4 +1,3 @@
-// Adjust the image import to your actual file
 import AboutUsBG from '../assets/images/blacksand_bg.jpg'
 import robotVideo from '../assets/roavai.mp4'
 
