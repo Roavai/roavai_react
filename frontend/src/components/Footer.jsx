@@ -8,12 +8,19 @@ function Footer() {
                 <div className="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
-                            <a href="#" className="flex items-center">
-                                <img src={ROAVAI} className="h-35 w-35" alt="Roavai with pet Logo" />
-                                {/* <span className="text-heading self-center text-2xl font-semibold whitespace-nowrap">Flowbite</span> */}
+                            <a href="#" className="flex items-start">
+                                <img src={ROAVAI} className="h-30 w-30" alt="Roavai with pet Logo" />
                             </a>
                         </div>
-                        <div className="nav-link-font grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                        <div className="nav-link-font grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+                            <div>
+                                <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Company</h2>
+                                <ul className="text-body font-small">
+                                    <li className="mb-4">
+                                        <a href="/careers" className="nav-link-cursor">Careers</a>
+                                    </li>
+                                </ul>
+                            </div>
                             <div>
                                 <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Resources</h2>
                                 <ul className="text-body font-small">
