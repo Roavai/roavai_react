@@ -20,14 +20,14 @@ function Product() {
 
     return (
         <section className="bg-black text-white">
-            <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center gap-10 px-4 md:flex-row md:items-center">
+            <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center gap-15 px-4 md:flex-row md:items-center">
                 {/* Left: feature list (desktop) / hidden on mobile */}
                 <div className="w-full md:w-1/3">
-                    <h2 className="font-orbitron mb-8 text-4xl font-extrabold tracking-wide">
+                    <h2 className="font-orbitron mb-10 text-4xl font-extrabold tracking-wide">
                         FEATURES
                     </h2>
 
-                    <ul className="space-y-4 hidden md:block">
+                    <ul className="space-y-8 font-semibold hidden md:block">
                         {FEATURES.map((f) => (
                             <li
                                 key={f.id}
@@ -73,8 +73,7 @@ function Product() {
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                     </div>
 
-                    {/* Text overlay (same for desktop & mobile, driven by active feature) */}
-                    <div className="pointer-events-none absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+                    <div className="flex flex-col h-48 justify-start pt-6 md:h-auto md:justify-end md:pt-0 md:p-10">
                         <h3 className="font-orbitron mb-3 text-3xl font-extrabold tracking-[0.2em] md:text-4xl">
                             {active.title}
                         </h3>
@@ -84,7 +83,7 @@ function Product() {
                     </div>
 
                     {/* Mobile arrows */}
-                    <div className="mt-25 flex items-center justify-center gap-4 md:hidden">
+                    <div className="mt-10 flex items-center justify-center gap-10 md:hidden">
                         <button
                             onClick={handlePrev}
                             className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900" /* text-sm hover:border-red-500 hover:text-red-400 */
