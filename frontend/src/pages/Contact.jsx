@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+// const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000' For local
 
 function Contact() {
     const [status, setStatus] = useState(null)
@@ -20,11 +20,27 @@ function Contact() {
         }
 
         if (!payload.name || !payload.email || !payload.message) return
+        if (payload.name.length > 25 || payload.message.length > 1000) return
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+        if (!emailPattern.test(payload.email)) {
+            setStatus('error')
+            setShowError(true)
+            return
+        }
+
 
         try {
             setStatus('loading')
 
-            const res = await fetch(`${API_BASE}/api/contact`, {
+            // const res = await fetch(`${API_BASE}/api/contact`, {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(payload),
+            // }) For local
+
+            const res = await fetch(`/api/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
