@@ -27,6 +27,18 @@ app.post("/api/contact", async (req, res) => {
     //   "utf8"
     // );
 
+    const submitDate = new Date();
+
+    const timestamp = submitDate.toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    })
+
     const auth = new google.auth.GoogleAuth({
       credentials,
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
@@ -39,7 +51,7 @@ app.post("/api/contact", async (req, res) => {
       range: "Sheet1!A:C",
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[new Date().toISOString(), name, email, message]],
+        values: [[timestamp, name, email, message]],
       },
     });
 
