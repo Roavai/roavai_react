@@ -9,7 +9,9 @@ function MainLayout() {
             <main>
                 <Outlet />
             </main>
-            <Footer />
+            <div id="footer" className="snap-start">
+                <Footer />
+            </div>
         </div>
     );
 }
