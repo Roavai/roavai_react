@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import robotVideo from '../assets/robowink5.mp4'
+import heroPoster from '../assets/images/robowink5last.png'
 
 function DesktopHero() {
 
@@ -29,6 +30,7 @@ function DesktopHero() {
             <div>
                 <video
                     src={robotVideo}
+                    poster={heroPoster}
                     autoPlay
                     muted
                     playsInline

@@ -1,4 +1,4 @@
-import AboutUsBG from '../assets/images/blacksand_bg.jpg'
+import AboutUsBG from '../assets/images/stellar-drift-1920x1080.png'
 import robotVideo from '../assets/roavai.mp4'
 
 function About() {

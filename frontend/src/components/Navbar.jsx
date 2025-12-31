@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 const navLinks = [
     { label: 'Home', type: 'section', targetId: 'home' },
@@ -11,12 +11,30 @@ const navLinks = [
 
 function Navbar() {
     const navigate = useNavigate()
+    const location = useLocation()
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+    // Handle scroll on mount if navigating from another page
+    useEffect(() => {
+        if (location.state && location.state.targetId) {
+            const el = document.getElementById(location.state.targetId)
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' })
+                // Clear state
+                window.history.replaceState({}, document.title)
+            }
+        }
+    }, [location])
+
 
     const handleNavClick = (link) => {
         if (link.type === 'section') {
-            const el = document.getElementById(link.targetId)
-            if (el) el.scrollIntoView({ behavior: 'smooth' })
+            if (location.pathname !== '/') {
+                navigate('/', { state: { targetId: link.targetId } })
+            } else {
+                const el = document.getElementById(link.targetId)
+                if (el) el.scrollIntoView({ behavior: 'smooth' })
+            }
         } else if (link.type === 'route') {
             navigate(link.to)
         }
@@ -25,7 +43,7 @@ function Navbar() {
     return (
         <>
             <header className="fixed inset-x-0 top-0 z-40 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.35)_0%,rgba(10,10,10,0.08)_100%)] backdrop-blur-xs">
-                <div className="relative flex h-16 items-center px-4 md:px-8">
+                <div className="relative flex h-14 items-center px-4 md:px-8">
                     <span className="nav-link-cursor text-2xl nav-link-font font-semibold tracking-[0.35em] text-gray-100">
                         <a
                             className="text-2xl md:text-3xl z-50 font-semibold tracking-[0.1em] text-white"
@@ -34,7 +52,7 @@ function Navbar() {
                         </a>
                     </span>
 
-                    <nav className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 gap-10 md:flex">
+                    <nav className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 gap-10 lg:flex">
                         {navLinks.map(link => (
                             <button
                                 key={link.label}

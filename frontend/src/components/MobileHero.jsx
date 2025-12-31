@@ -6,7 +6,7 @@ import heroPoster from '../assets/images/robowink5last.png'
 function MobileHero() {
     return (
 
-        <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-black">
+        <section className="relative min-h-screen overflow-hidden bg-black">
             <video
                 src={robotVideo}
                 poster={heroPoster}
@@ -17,7 +17,7 @@ function MobileHero() {
             />
             {/* Overlay removed to allow interaction if needed, or just relying on Play button */}
 
-            <div className="relative z-20 flex h-full flex-col items-center justify-center pt-20 px-4 text-center pointer-events-none">
+            <div className="relative z-20 flex h-full flex-col items-center justify-center mt-14 pt-[2vh] px-4 text-center pointer-events-none">
                 <motion.h1
                     className="hero-name-mobile text-[6vh] leading-none mb-3 pointer-events-auto"
                     initial={{ opacity: 0, y: 30 }}
@@ -30,7 +30,7 @@ function MobileHero() {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut', delay: 1.8 }}
-                    className="font-orbitron text-[1rem] leading-relaxed tracking-[0.12em] text-white/85 pointer-events-auto"
+                    className="font-orbitron text-[2vh] leading-relaxed tracking-[0.12em] text-white/85 pointer-events-auto"
                 >
                     <div>A robot that learns,</div>
                 </motion.div>
@@ -38,7 +38,7 @@ function MobileHero() {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut', delay: 2.0 }}
-                    className="font-orbitron text-[1rem] leading-relaxed tracking-[0.12em] text-white/85 pointer-events-auto"
+                    className="font-orbitron text-[2vh] leading-relaxed tracking-[0.12em] text-white/85 pointer-events-auto"
                 >
                     <div>plays and lives with you.</div>
                 </motion.div>
