@@ -1,7 +1,8 @@
 // src/pages/Blog.jsx
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { posts } from '../utils/blogData'
 import BlogPostCard from '../components/BlogPostCard'
 
