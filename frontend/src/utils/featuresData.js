@@ -14,7 +14,7 @@ export const FEATURES = [
     emoji: '👁️',
     title: 'CAMERA & VISION',
     description:
-      'Advanced computer vision allows ROAVAI to detect people, recognize gestures, and identify objects with incredible precision.',
+      'Advanced computer vision allows Wini to detect people, recognize gestures, and identify objects with incredible precision.',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const FEATURES = [
     emoji: '🎤',
     title: 'VOICE RECOGNITION',
     description:
-      'Speak naturally. ROAVAI learns your voice and responds to commands instantly, creating a seamless bond between you and the machine.',
+      'Speak naturally. Wini learns your voice and responds to commands instantly, creating a seamless bond between you and the machine.',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const FEATURES = [
     emoji: '🕺',
     title: 'EXPRESSIVE MOTION',
     description:
-      'More than a robot. With realistic body language, tail wags, and head tilts, ROAVAI expresses emotion just like a loyal companion.',
+      'More than a robot. With realistic body language, tail wags, and head tilts, Wini expresses emotion just like a loyal companion.',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ export const FEATURES = [
     emoji: '🔌',
     title: 'AUTO CHARGING',
     description:
-      'Set it and forget it. When power runs low, ROAVAI autonomously navigates back to its station to recharge.',
+      'Set it and forget it. When power runs low, Wini autonomously navigates back to its station to recharge.',
   },
   {
     id: 5,

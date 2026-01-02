@@ -1,27 +1,27 @@
-import ROAVAI from "../assets/images/roavai.png";
-
+import ROAVAI from "../assets/images/RoavaiLOGO.png";
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
         <>
-            <footer className="bg-neutral-primary-soft  bg-black text-gray-300 ">
+            <footer className="bg-neutral-primary-soft bg-black text-gray-300 relative bg-no-repeat bg-cover bg-center" style={{ background: 'linear-gradient(180deg,rgba(0, 0, 0, 1) 50%, rgba(30, 30, 30, 1) 100%)' }}>
+
                 <div className="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
-                            <a href="#" className="flex items-center">
-                                <img src={ROAVAI} className="h-35 w-35" alt="Roavai with pet Logo" />
-                                {/* <span className="text-heading self-center text-2xl font-semibold whitespace-nowrap">Flowbite</span> */}
-                            </a>
+                            <Link to="/" className="flex items-start">
+                                <img src={ROAVAI} className="h-24 w-auto drop-shadow-[0_0_10px_rgba(128,128,128,0.8)]" alt="Roavai Logo" />
+                            </Link>
                         </div>
                         <div className="nav-link-font grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                             <div>
-                                <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Resources</h2>
+                                <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Company</h2>
                                 <ul className="text-body font-small">
                                     <li className="mb-4">
-                                        <a href="#" className="nav-link-cursor">Flowbite</a>
+                                        <Link to="/explore" className="nav-link-cursor">About</Link>
                                     </li>
-                                    <li>
-                                        <a href="https://tailwindcss.com/" className="nav-link-cursor">Tailwind CSS</a>
+                                    <li className="mb-4">
+                                        <Link to="/careers" className="nav-link-cursor">Careers</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -29,10 +29,13 @@ function Footer() {
                                 <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Follow us</h2>
                                 <ul className="text-body text-md font-small">
                                     <li className="mb-4">
-                                        <a href="https://github.com/themesberg/flowbite" className="nav-link-cursor">Github</a>
+                                        <a href="https://x.com/_Roavai" target="_blank" rel="noopener noreferrer" className="nav-link-cursor">X</a>
                                     </li>
-                                    <li>
-                                        <a href="https://discord.gg/4eeurUVvTy" className="nav-link-cursor">Discord</a>
+                                    <li className="mb-4">
+                                        <a href="#" className="nav-link-cursor">YouTube</a>
+                                    </li>
+                                    <li className="mb-4">
+                                        <a href="#" className="nav-link-cursor">Instagram</a>
                                     </li>
                                 </ul>
                             </div>
@@ -40,10 +43,10 @@ function Footer() {
                                 <h2 className="mb-6 text-lg font-semibold text-heading uppercase">Legal</h2>
                                 <ul className="text-body font-small">
                                     <li className="mb-4">
-                                        <a href="#" className="nav-link-cursor">Privacy Policy</a>
+                                        <Link to="/privacy-policy" className="nav-link-cursor">Privacy Policy</Link>
                                     </li>
                                     <li>
-                                        <a href="#" className="nav-link-cursor">Terms &amp; Conditions</a>
+                                        <Link to="/terms" className="nav-link-cursor">Terms &amp; Conditions</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -67,7 +70,7 @@ function Footer() {
 
                                 <span className="sr-only">Youtube</span>
                             </a>
-                            <a href="#" className="text-body hover:text-heading ms-5">
+                            <a href="https://x.com/_Roavai" className="text-body hover:text-heading ms-5">
                                 <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z" /></svg>
                                 <span className="sr-only">Twitter page</span>
                             </a>
