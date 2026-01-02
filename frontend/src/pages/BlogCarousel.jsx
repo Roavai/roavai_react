@@ -1,5 +1,5 @@
 // src/components/BlogCarousel.jsx
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useMediaQuery } from '../hooks/useMediaQuery'
@@ -18,20 +18,20 @@ function BlogCarousel() {
 
     const len = posts.length || 0
 
-    const goTo = useCallback((index) => {
+    const goTo = (index) => {
         if (!len) return
         setActiveIndex(((index % len) + len) % len)
-    }, [len])
+    }
 
-    const next = useCallback(() => {
+    const next = () => {
         if (!len) return
         setActiveIndex((prev) => ((prev + 1) % len + len) % len)
-    }, [len])
+    }
 
-    const prev = useCallback(() => {
+    const prev = () => {
         if (!len) return
         setActiveIndex((prev) => ((prev - 1) % len + len) % len)
-    }, [len])
+    }
 
     // Stable autoplay: depends only on len and isHovered
     useEffect(() => {
@@ -40,7 +40,7 @@ function BlogCarousel() {
         if ((isDesktop && isHovered) || len <= 1) return
         const id = setInterval(next, AUTOPLAY_MS)
         return () => clearInterval(id)
-    }, [isHovered, len, isDesktop, next])
+    }, [isHovered, len, isDesktop])
 
     if (!len) return null
 
