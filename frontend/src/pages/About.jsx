@@ -1,5 +1,5 @@
 // Adjust the image import to your actual file
-import AboutUsBG from '../assets/images/blacksand_bg.jpg'
+import AboutUsBG from '../assets/images/stellar-drift-1920x1080.png'
 
 function About() {
     return (
