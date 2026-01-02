@@ -118,10 +118,12 @@ function BlogPost() {
                     <h2 className="font-orbitron text-2xl md:text-3xl font-bold mb-12 text-center tracking-[0.2em] text-white">
                         LATEST POSTS
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {posts.map((p) => (
-                            <BlogPostCard key={p.slug} post={p} />
-                        ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                        {posts
+                            .filter((p) => p.slug !== slug)
+                            .map((p) => (
+                                <BlogPostCard key={p.slug} post={p} />
+                            ))}
                     </div>
                 </section>
             </div>
