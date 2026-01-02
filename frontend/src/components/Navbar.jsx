@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 const navLinks = [
     { label: 'Home', type: 'section', targetId: 'home' },
     { label: 'Product', type: 'section', targetId: 'product' },
-    { label: 'Blog', type: 'route', to: '/blog' },
+    { label: 'Blogs', type: 'section', targetId: 'blog-carousel' },
     { label: 'About', type: 'section', targetId: 'about' },
     { label: 'Contact', type: 'section', targetId: 'contact' },
 ]

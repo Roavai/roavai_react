@@ -1,15 +1,14 @@
 // Adjust the image import to your actual file
 import AboutUsBG from '../assets/images/blacksand_bg.jpg'
-import robotVideo from '../assets/roavai.mp4'
 
 function About() {
     return (
-        <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden text-white">
+        <section className="relative min-h-screen overflow-hidden text-white">
             {/* Background image */}
             <img
                 src={AboutUsBG}
                 alt="Dark sand background"
-                className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+                className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-75"
             />
 
             {/* <video
@@ -23,10 +22,10 @@ function About() {
             /> */}
 
             {/* Dark overlay for readability */}
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0" />
 
             {/* Content */}
-            <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-4xl flex-col items-center justify-center px-6 text-center">
+            <div className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 text-center">
                 {/* Big title */}
                 <h1 className="font-orbitron mb-8 text-4xl tracking-[0.4em] md:text-6xl">
                     ABOUT&nbsp;US

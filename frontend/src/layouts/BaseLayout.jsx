@@ -1,8 +1,8 @@
-// layouts/MinimalLayout.jsx
+// layouts/BaseLayout.jsx
 import { Outlet, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 
-export default function MinimalLayout() {
+export default function BaseLayout() {
     const navigate = useNavigate()
 
     const handleBack = () => {
