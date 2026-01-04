@@ -1,5 +1,6 @@
 // api/contact.js
 import { google } from 'googleapis'
+import { Filter } from 'bad-words'
 
 
 function decodeBase64Json(b64) {
@@ -35,6 +36,12 @@ export default async function handler(req, res) {
     // Basic validation
     if (!name || !email || !message) {
         res.status(400).json({ error: 'Missing fields' })
+        return
+    }
+
+    const filter = new Filter()
+    if (filter.isProfane(message) || filter.isProfane(name)) {
+        res.status(400).json({ error: 'Profanity detected' })
         return
     }
     if (name.length > 80 || message.length > 1000) {
