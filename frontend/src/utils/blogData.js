@@ -36,9 +36,11 @@ function simpleMarkdownToHtml(md) {
 }
 
 function parsePost(raw, filePath) {
-    const match = /^---\n([\s\S]+?)\n---\n([\s\S]*)$/m.exec(raw)
+    // Handle both Unix (\n) and Windows (\r\n) line endings
+    const normalizedRaw = raw.replace(/\r\n/g, '\n')
+    const match = /^---\n([\s\S]+?)\n---\n([\s\S]*)$/m.exec(normalizedRaw)
     let front = {}
-    let body = raw
+    let body = normalizedRaw
 
     if (match) {
         const [, fm, content] = match

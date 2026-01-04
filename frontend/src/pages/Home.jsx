@@ -3,13 +3,14 @@ import About from './About.jsx'
 import Contact from './Contact.jsx'
 import Product from './Product.jsx'
 import BlogCarousel from './BlogCarousel.jsx'
+import GradientBackground from '../components/GradientBackground.jsx'
 
 function Home() {
 
     return (
         <div className="relative">
-            {/* Fixed Background Image */}
-            <div className="fixed inset-0 bg-image bg-cover bg-center bg-no-repeat" />
+            {/* Fixed Gradient Background */}
+            <GradientBackground />
 
             {/* Scrollable Content */}
             <div className="relative z-10">

@@ -42,7 +42,7 @@ function Product() {
         >
 
             {/* Main Content Container */}
-            <div className="relative z-10 pt-20 mx-auto flex h-screen max-w-7xl flex-col md:flex-row items-center justify-center p-6 gap-8">
+            <div className="relative z-10 pt-20 mx-auto flex min-h-screen md:h-screen max-w-7xl flex-col md:flex-row items-center justify-center p-6 gap-8">
 
                 {/* --- DESKTOP: LEFT LIST (25%) --- */}
                 <div className="hidden md:flex w-full md:w-1/4 flex-col justify-center space-y-6">
@@ -67,9 +67,8 @@ function Product() {
                     ))}
                 </div>
 
-                {/* --- DESKTOP: RIGHT PREVIEW (75%) --- */}
                 <div className="hidden md:block h-[75vh] aspect-[4/3]">
-                    <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/10 shadow-2xl backdrop-blur-sm transition-all duration-500">
+                    <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] backdrop-blur-sm transition-all duration-500">
                         {/* Image Slide */}
                         <img
                             key={activeId} // Key change triggers animation
@@ -88,17 +87,17 @@ function Product() {
                 </div>
 
                 {/* --- MOBILE: CAROUSEL VIEW --- */}
-                <div className="flex md:hidden h-full chat-screen w-full flex-col justify-center items-center gap-6">
+                <div className="flex md:hidden h-auto w-full flex-col justify-center items-center gap-6">
 
                     {/* Top: Navigation Title */}
                     <div className="w-full flex justify-center px-4 mb-2">
-                        <h2 className="font-orbitron text-sm font-bold text-white tracking-widest leading-tight animate-fadeIn bg-white/5 rounded-full backdrop-blur-sm border border-white/10 py-2 px-6">
+                        <h2 className="font-orbitron text-sm font-bold text-white tracking-widest leading-tight animate-fadeIn">
                             {active.label.toUpperCase()}
                         </h2>
                     </div>
 
                     {/* Middle: Image Preview */}
-                    <div className="relative w-full aspect-square max-w-sm rounded-3xl overflow-hidden border border-white/20 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+                    <div className="relative w-full h-72 sm:h-80 max-w-sm flex-none rounded-3xl overflow-hidden border border-white/20 shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
                         <img
                             key={activeId}
                             src={FEATURE_IMAGES[activeId]}
@@ -108,14 +107,14 @@ function Product() {
                     </div>
 
                     {/* Mobile Description (Outside Box) */}
-                    <div className="w-full max-w-sm px-4">
+                    <div className="w-full max-w-sm px-4 min-h-[6em] flex items-center justify-center">
                         <p className="text-sm text-gray-200 text-center leading-relaxed font-light">
                             {active.description}
                         </p>
                     </div>
 
                     {/* Bottom: Navigation Controls (Arrows + Dots) */}
-                    <div className="flex items-center justify-center gap-6 mt-4 w-full px-4">
+                    <div className="flex items-center justify-center gap-6 mt-8 w-full px-4">
                         <button onClick={handlePrev} className="p-3 text-white/70 hover:text-white active:scale-95 transition bg-white/5 rounded-full backdrop-blur-sm border border-white/10">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
                         </button>

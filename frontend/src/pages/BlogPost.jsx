@@ -65,18 +65,18 @@ function BlogPost() {
                     </p>
                 </motion.header>
 
-                {/* Hero Image */}
+                {/* Hero Image - 16:9 Banner */}
                 {post.image && (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative mb-16 rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(255,0,0,0.1)] border border-zinc-900"
+                        className="relative mb-16 aspect-video rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(255,0,0,0.1)] border border-zinc-900"
                     >
                         <img
                             src={post.image}
                             alt={post.tileTitle}
-                            className="w-full h-auto object-cover"
+                            className="absolute inset-0 w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
                     </motion.div>

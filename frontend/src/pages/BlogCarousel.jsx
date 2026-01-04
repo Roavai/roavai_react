@@ -113,17 +113,6 @@ function BlogCarousel() {
                                         >
                                             {post.title}
                                         </motion.h3>
-
-                                        <motion.p
-                                            key={`summary-${post.slug}`}
-                                            initial={{ opacity: 0, y: 30 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: 30 }}
-                                            transition={{ duration: 0.7, ease: easing, delay: 0.3 }}
-                                            className="font-orbitron tracking-wider text-sm md:text-base text-zinc-400 max-w-xl"
-                                        >
-                                            {post.summary}
-                                        </motion.p>
                                     </div>
 
                                     <motion.div

@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import robotVideo from '../assets/robowink5.mp4'
+import robotVideo from '../assets/robowink6.mp4'
 import heroPoster from '../assets/images/robowink5last.png'
 
 
 function MobileHero() {
     return (
 
-        <section className="relative min-h-screen overflow-hidden bg-black">
+        <section className="relative min-h-screen overflow-hidden">
             <video
                 src={robotVideo}
                 poster={heroPoster}
@@ -15,7 +15,7 @@ function MobileHero() {
                 playsInline
                 className="absolute inset-0 h-full w-full object-cover z-0"
             />
-            {/* Overlay removed to allow interaction if needed, or just relying on Play button */}
+
 
             <div className="relative z-20 flex h-full flex-col items-center justify-center mt-14 pt-[2vh] px-4 text-center pointer-events-none">
                 <motion.h1

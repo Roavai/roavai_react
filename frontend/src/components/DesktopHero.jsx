@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import robotVideo from '../assets/robowink5.mp4'
+import robotVideo from '../assets/robowink6.mp4'
 import heroPoster from '../assets/images/robowink5last.png'
 
 function DesktopHero() {
@@ -25,7 +25,7 @@ function DesktopHero() {
 
     return (
 
-        < section className="relative min-h-screen overflow-hidden bg-black h-full" >
+        < section className="relative min-h-screen overflow-hidden" >
 
             <div>
                 <video
@@ -36,6 +36,8 @@ function DesktopHero() {
                     playsInline
                     className="pointer-events-none absolute inset-0 h-full w-full object-cover z-0"
                 />
+                {/* Dark overlay to control video brightness */}
+                <div className="absolute inset-0 bg-black/30 z-[1]" />
                 <div className="heroMidTextRow">
 
                     <div className="heroMidInner">
