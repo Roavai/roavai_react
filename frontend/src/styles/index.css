@@ -416,11 +416,6 @@ body {
   cursor: pointer;
 }
 
-/* Optional: make it feel more “sci‑fi” for nav links */
-.nav-link-cursor:hover {
-  /* glow removed */
-}
-
 /* navlink style */
 .nav-link-font {
   font-family: 'Orbitron', sans-serif;

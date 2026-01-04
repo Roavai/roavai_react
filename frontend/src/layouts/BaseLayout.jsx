@@ -17,10 +17,12 @@ export default function BaseLayout() {
 
     return (
         <div className="min-h-screen bg-black text-white">
-            <header className="nav-link-font font-semibold flex items-center justify-between px-8 py-5.5">
-                <a href="/" className="nav-link-cursor  nav-link-font  text-gray-100 text-xl font-semibold tracking-[0.3em]">
-                    ROAVAI
-                </a>
+            <header className="nav-link-font font-semibold flex h-14 items-center justify-between px-4 md:px-8">
+                <span className="nav-link-cursor text-2xl nav-link-font font-semibold tracking-[0.35em] text-gray-100">
+                    <a href="/" className="text-2xl md:text-3xl z-50 font-semibold tracking-[0.1em] text-white">
+                        ROAVAI
+                    </a>
+                </span>
                 <button
                     onClick={handleBack}
                     className="nav-link-cursor text-sm tracking-wide underline underline-offset-4"

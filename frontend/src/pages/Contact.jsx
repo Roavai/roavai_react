@@ -162,7 +162,7 @@ function Contact() {
 
                             <button
                                 onClick={() => setShowSuccess(false)}
-                                className="w-full rounded-full bg-red-600 px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition hover:bg-red-500"
+                                className="font-orbitron explore-button w-full cursor-pointer px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition"
                             >
                                 Close
                             </button>
@@ -200,7 +200,7 @@ function Contact() {
 
                             <button
                                 onClick={() => setShowError(false)}
-                                className="w-full rounded-full bg-zinc-800 px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition hover:bg-zinc-700"
+                                className="font-orbitron explore-button w-full cursor-pointer px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition"
                             >
                                 Close
                             </button>
