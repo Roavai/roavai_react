@@ -36,7 +36,8 @@ app.post("/api/contact", async (req, res) => {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
-      hour12: true
+      hour12: true,
+      timeZone: 'Asia/Kolkata'
     })
 
     const auth = new google.auth.GoogleAuth({
