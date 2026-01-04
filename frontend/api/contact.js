@@ -50,12 +50,13 @@ export default async function handler(req, res) {
 
     const submitDate = new Date()
 
-    const timestamp = submitDate.toLocaleString('en-IN', {
+    const timestamp = submitDate.toLocaleDateString('en-IN', {
         day: '2-digit',
         month: 'short',
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
+        second: '2-digit',
         hour12: true,
     })
 
