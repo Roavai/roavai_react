@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Filter } from 'bad-words'
 
 // const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000' For local
 
@@ -6,6 +7,7 @@ function Contact() {
     const [status, setStatus] = useState(null)
     const [showSuccess, setShowSuccess] = useState(false)
     const [showError, setShowError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('Sorry, something went wrong while sending your message. Please check your connection and try again.')
 
 
     const handleSubmit = async (e) => {
@@ -17,6 +19,14 @@ function Contact() {
             name: form.name.value.trim(),
             email: form.email.value.trim(),
             message: form.message.value.trim(),
+        }
+
+        const filter = new Filter()
+        if (filter.isProfane(payload.message) || filter.isProfane(payload.name)) {
+            setStatus('error')
+            setErrorMessage('Please maintain professional language.')
+            setShowError(true)
+            return
         }
 
         if (!payload.name || !payload.email || !payload.message) return
@@ -162,7 +172,7 @@ function Contact() {
 
                             <button
                                 onClick={() => setShowSuccess(false)}
-                                className="w-full rounded-full bg-red-600 px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition hover:bg-red-500"
+                                className="font-orbitron explore-button w-full cursor-pointer px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition"
                             >
                                 Close
                             </button>
@@ -194,13 +204,12 @@ function Contact() {
                                 MESSAGE NOT SENT
                             </h3>
                             <p className="mb-5 text-sm text-gray-300">
-                                Sorry, something went wrong while sending your message. Please check your
-                                connection and try again.
+                                {errorMessage}
                             </p>
 
                             <button
                                 onClick={() => setShowError(false)}
-                                className="w-full rounded-full bg-zinc-800 px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition hover:bg-zinc-700"
+                                className="font-orbitron explore-button w-full cursor-pointer px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition"
                             >
                                 Close
                             </button>
