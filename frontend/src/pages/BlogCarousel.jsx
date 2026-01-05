@@ -109,7 +109,7 @@ function BlogCarousel() {
                                             initial={{ opacity: 0, y: 16 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.7, ease: easing, delay: 0.15 }}
-                                            className="font-orbitron tracking-wider text-2xl md:text-3xl font-extrabold tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent"
+                                            className="font-orbitron text-2xl md:text-3xl font-extrabold tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent"
                                         >
                                             {post.title}
                                         </motion.h3>

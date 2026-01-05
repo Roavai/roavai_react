@@ -30,7 +30,7 @@ export const FEATURES = [
     emoji: '🕺',
     title: 'EXPRESSIVE MOTION',
     description:
-      'More than a robot. With realistic body language, tail wags, and head tilts, Wini expresses emotion just like a loyal companion.',
+      'More than a robot. With realistic body language like emotional eyes, ears and head nods, Wini expresses emotion just like a loyal companion.',
   },
   {
     id: 4,

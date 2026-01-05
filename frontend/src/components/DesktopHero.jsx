@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import robotVideo from '../assets/robowink6.mp4'
-import heroPoster from '../assets/images/robowink5last.png'
+import robotVideoWebm from '../assets/robowinknobg.webm'
+import heroPoster from '../assets/images/robowinknobg.png'
+import GlowBackground from './GlowBackground'
 
 function DesktopHero() {
 
@@ -26,18 +27,21 @@ function DesktopHero() {
     return (
 
         < section className="relative min-h-screen overflow-hidden" >
-
+            <GlowBackground />
             <div>
                 <video
-                    src={robotVideo}
                     poster={heroPoster}
                     autoPlay
                     muted
                     playsInline
-                    className="pointer-events-none absolute inset-0 h-full w-full object-cover z-0"
-                />
+                    preload="auto"
+                    className="pointer-events-none absolute inset-0 h-full w-full object-cover z-10"
+                    style={{ transform: 'translateZ(0)' }}
+                >
+                    <source src={robotVideoWebm} type="video/webm" />
+                </video>
                 {/* Dark overlay to control video brightness */}
-                <div className="absolute inset-0 bg-black/30 z-[1]" />
+                <div className="absolute inset-0 z-[1]" />
                 <div className="heroMidTextRow">
 
                     <div className="heroMidInner">

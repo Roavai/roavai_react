@@ -47,7 +47,12 @@ function Explore() {
                         Our Story
                     </h1>
                     <p className="text-zinc-400 text-lg md:text-xl leading-relaxed max-w-2xl">
-                        From a vision to reality — discover how ROAVAI is redefining the future of robotics and human-machine interaction.
+                        We are a bunch of passionate individuals who strongly believe in the power of technology to make the world a better place.
+                        <br />
+                        <br />
+                        <br />
+                        We strongly believe that robotics and AI is going to change the world and create a future of abundance for all.
+                        <br />
                     </p>
                 </header>
 
@@ -55,19 +60,10 @@ function Explore() {
                 <div className="space-y-16">
                     <section>
                         <h2 className="font-orbitron text-2xl md:text-3xl font-bold mb-6 text-white">
-                            The Beginning
-                        </h2>
-                        <p className="text-zinc-400 leading-relaxed">
-                            ROAVAI was founded with a singular vision: to create robots that don't just serve, but truly connect with humans. We believe that the future of robotics lies not in cold, mechanical efficiency, but in warm, intelligent companionship.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="font-orbitron text-2xl md:text-3xl font-bold mb-6 text-white">
                             Our Mission
                         </h2>
                         <p className="text-zinc-400 leading-relaxed">
-                            We're building foundational robotics technology that transforms machines into living companions — intelligent, expressive, and human-like. Our robots don't just respond; they understand, adapt, and grow alongside their human partners.
+                            To build deeply beneficial robotics and AI solutions that elevate the human experience and enable us to explore the universe to its fullest potential.
                         </p>
                     </section>
 
@@ -75,9 +71,10 @@ function Explore() {
                         <h2 className="font-orbitron text-2xl md:text-3xl font-bold mb-6 text-white">
                             The Technology
                         </h2>
-                        <p className="text-zinc-400 leading-relaxed">
-                            At the heart of ROAVAI is a unique blend of advanced AI, expressive motion systems, and semantic understanding. Our robots perceive the world, understand context, and express themselves in ways that feel natural and intuitive.
-                        </p>
+                        While we build products that are applicable to the real world and accessible to everyone, we also engineer the technology that powers them.
+                        <br />
+                        <br />
+                        Building foundational technologies that are at the cutting edge of AI and robotics is our number one priority and greatest strength.
                     </section>
 
                     <section>
@@ -85,7 +82,7 @@ function Explore() {
                             Join the Journey
                         </h2>
                         <p className="text-zinc-400 leading-relaxed mb-8">
-                            We're always looking for passionate individuals who share our vision. Whether you're an engineer, designer, or dreamer — there's a place for you at ROAVAI.
+                            We are constantly seeking passionate individuals who share our vision. Whether you are an engineer, a designer, or a dreamer, there is a place for you at ROAVAI to help build the future.
                         </p>
                         <a href="/careers" className="font-orbitron explore-button">
                             View Careers

@@ -341,7 +341,7 @@ body {
 }
 
 .stars-text {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 6px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -408,7 +408,13 @@ body {
 }
 
 .font-orbitron {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+
+.font-logo {
+  font-family: 'jost', sans-serif;
+  font-weight: 700;
+  color: #ffffffc3;
 }
 
 /* click effect on nav links */
@@ -416,14 +422,9 @@ body {
   cursor: pointer;
 }
 
-/* Optional: make it feel more “sci‑fi” for nav links */
-.nav-link-cursor:hover {
-  /* glow removed */
-}
-
 /* navlink style */
 .nav-link-font {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Nunito', sans-serif;
   letter-spacing: 2px;
   font-size: 16px;
 }
@@ -435,7 +436,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 30;
+  z-index: 5;
   pointer-events: none;
 }
 
@@ -571,7 +572,7 @@ body {
   display: inline-flex;
   flex-direction: column;
   gap: 0.2rem;
-  font-family: "Orbitron", system-ui;
+  font-family: "Nunito", sans-serif;
   color: #ffffffc0;
   font-size: 0.95rem;
   letter-spacing: 0.12em;

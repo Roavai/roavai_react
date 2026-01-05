@@ -3,12 +3,13 @@ import { FEATURES } from '../utils/featuresData'
 
 // Import assets
 
-import featureAi from '../assets/images/feature_ai.png'
-import featureVision from '../assets/images/feature_vision.png'
-import featureVoice from '../assets/images/feature_voice.png'
-import featureMotion from '../assets/images/feature_motion.png'
-import featureCharging from '../assets/images/feature_charging.png'
-import featureMapping from '../assets/images/feature_mapping.png'
+import featureAi from '../assets/images/feature_ai_v1.png'
+import featureVision from '../assets/images/feature_vision_v1.png'
+import featureVoice from '../assets/images/feature_voice_v1.png'
+import featureMotion from '../assets/images/feature_motion_v1.png'
+import featureCharging from '../assets/images/feature_charging_v1.png'
+import featureMapping from '../assets/images/feature_mapping_v1.png'
+
 
 // Mapping features to images
 const FEATURE_IMAGES = [
@@ -41,6 +42,8 @@ function Product() {
 
         >
 
+
+
             {/* Main Content Container */}
             <div className="relative z-10 pt-20 mx-auto flex min-h-screen md:h-screen max-w-7xl flex-col md:flex-row items-center justify-center p-6 gap-8">
 
@@ -54,7 +57,7 @@ function Product() {
                                 }`}
                         >
                             {/* Visual Indicator Line for active state */}
-                            <div className={`h-10 w-1 rounded-full transition-colors duration-300 ${f.id === activeId ? 'bg-white' : 'bg-transparent'
+                            <div className={`h-10 w-px rounded-full transition-colors duration-300 ${f.id === activeId ? 'bg-white' : 'bg-transparent'
                                 }`} />
 
                             <div className="flex flex-col">
@@ -67,7 +70,7 @@ function Product() {
                     ))}
                 </div>
 
-                <div className="hidden md:block h-[75vh] aspect-[4/3]">
+                <div className="hidden md:block h-[60vh] aspect-[4/3]">
                     <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] backdrop-blur-sm transition-all duration-500">
                         {/* Image Slide */}
                         <img
@@ -78,8 +81,8 @@ function Product() {
                         />
 
                         {/* Description Overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/10 to-transparent px-12 pt-12 pb-6">
-                            <p className="font-sans max-w-2xl text-lg text-gray-200 leading-relaxed">
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent px-12 pt-40 pb-4">
+                            <p className="font-sans max-w-2xl text-base font-light text-gray-200 leading-snug">
                                 {active.description}
                             </p>
                         </div>
@@ -124,7 +127,7 @@ function Product() {
                                 <button
                                     key={f.id}
                                     onClick={() => setActiveId(f.id)}
-                                    className={`h-2 rounded-full transition-all duration-300 ${f.id === activeId ? 'w-8 bg-blue-500' : 'w-2 bg-gray-600'
+                                    className={`h-2 rounded-full transition-all duration-300 ${f.id === activeId ? 'w-8 bg-white' : 'w-2 bg-gray-600'
                                         }`}
                                     aria-label={`Go to feature ${f.id + 1}`}
                                 />
@@ -142,12 +145,13 @@ function Product() {
             {/* Inline Animation Style for fade/slide effects */}
             <style>{`
                 @keyframes fadeIn {
-                    from { opacity: 0; transform: scale(0.98); }
-                    to { opacity: 1; transform: scale(1); }
+                    from { opacity: 0; }
+                    to { opacity: 1; }
                 }
                 .animate-fadeIn {
                     animation: fadeIn 0.4s ease-out forwards;
                 }
+
             `}</style>
         </section>
     )
