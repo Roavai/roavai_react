@@ -2,9 +2,9 @@
 const express = require("express");
 const cors = require('cors')
 const { google } = require("googleapis");
-const { google } = require("googleapis");
+
 require("dotenv").config();
-const { Filter } = require('bad-words');
+
 
 const app = express();
 
@@ -18,6 +18,7 @@ app.post("/api/contact", async (req, res) => {
     return res.status(400).json({ error: "Missing fields" });
   }
 
+  const { Filter } = await import('bad-words');
   const filter = new Filter();
   if (filter.isProfane(message) || filter.isProfane(name)) {
     return res.status(400).json({ error: "Profanity detected" });

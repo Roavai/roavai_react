@@ -1,4 +1,4 @@
-import ROAVAI from "../assets/images/RoavaiLOGO.png";
+import ROAVAI from "../assets/Images/RoavaiLOGO.png";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 

@@ -3,12 +3,12 @@ import { FEATURES } from '../utils/featuresData'
 
 // Import assets
 
-import featureAi from '../assets/images/feature_ai_v1.png'
-import featureVision from '../assets/images/feature_vision_v1.png'
-import featureVoice from '../assets/images/feature_voice_v1.png'
-import featureMotion from '../assets/images/feature_motion_v1.png'
-import featureCharging from '../assets/images/feature_charging_v1.png'
-import featureMapping from '../assets/images/feature_mapping_v1.png'
+import featureAi from '../assets/Images/feature_ai_v1.png'
+import featureVision from '../assets/Images/feature_vision_v1.png'
+import featureVoice from '../assets/Images/feature_voice_v1.png'
+import featureMotion from '../assets/Images/feature_motion_v1.png'
+import featureCharging from '../assets/Images/feature_charging_v1.png'
+import featureMapping from '../assets/Images/feature_mapping_v1.png'
 
 
 // Mapping features to images

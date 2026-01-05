@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import robotVideoWebm from '../assets/robowinknobg.webm'
-import heroPoster from '../assets/images/robowinknobg.png'
+import heroPoster from '../assets/Images/robowinknobg.png'
 import GlowBackground from './GlowBackground'
 
 function DesktopHero() {
