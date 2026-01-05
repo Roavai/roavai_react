@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Filter } from 'bad-words'
 
 // const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000' For local
 
@@ -6,6 +7,7 @@ function Contact() {
     const [status, setStatus] = useState(null)
     const [showSuccess, setShowSuccess] = useState(false)
     const [showError, setShowError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('Sorry, something went wrong while sending your message. Please check your connection and try again.')
 
 
     const handleSubmit = async (e) => {
@@ -17,6 +19,14 @@ function Contact() {
             name: form.name.value.trim(),
             email: form.email.value.trim(),
             message: form.message.value.trim(),
+        }
+
+        const filter = new Filter()
+        if (filter.isProfane(payload.message) || filter.isProfane(payload.name)) {
+            setStatus('error')
+            setErrorMessage('Please maintain professional language.')
+            setShowError(true)
+            return
         }
 
         if (!payload.name || !payload.email || !payload.message) return
@@ -67,9 +77,9 @@ function Contact() {
     }
 
     return (
-        <section id="contact" className="bg-black py-20 text-white">
+        <section className="py-20 text-white">
             <div className="mx-auto max-w-4xl px-4 py-4">
-                <h2 className="font-orbitron mb-10 text-center text-4xl font-extrabold tracking-wide md:text-5xl">
+                <h2 className="font-orbitron mb-10 text-center text-4xl font-extrabold tracking-widest md:text-5xl">
                     Contact Us
                 </h2>
 
@@ -83,7 +93,7 @@ function Contact() {
                                 type="text"
                                 name="name"
                                 required
-                                className="w-full rounded-md border border-transparent bg-zinc-900 px-4 py-3 text-sm text-white outline-none ring-0 transition focus:border-red-500 focus:bg-zinc-900 focus:ring-1 focus:ring-red-500"
+                                className="w-full rounded-md border border-transparent bg-zinc-900 px-4 py-3 text-sm text-white outline-none ring-0 transition focus:border-white-500 focus:bg-zinc-900 focus:ring-1 focus:ring-white-500"
                             />
                         </div>
 
@@ -95,7 +105,7 @@ function Contact() {
                                 type="email"
                                 name="email"
                                 required
-                                className="w-full rounded-md border border-transparent bg-zinc-900 px-4 py-3 text-sm text-white outline-none ring-0 transition focus:border-red-500 focus:bg-zinc-900 focus:ring-1 focus:ring-red-500"
+                                className="w-full rounded-md border border-transparent bg-zinc-900 px-4 py-3 text-sm text-white outline-none ring-0 transition focus:border-white-500 focus:bg-zinc-900 focus:ring-1 focus:ring-white-500"
                             />
                         </div>
                     </div>
@@ -108,7 +118,7 @@ function Contact() {
                             name="message"
                             rows={7}
                             required
-                            className="w-full resize-none rounded-md border border-transparent bg-zinc-900 px-4 py-3 text-sm text-white outline-none ring-0 transition focus:border-red-500 focus:bg-zinc-900 focus:ring-1 focus:ring-red-500"
+                            className="w-full resize-none rounded-md border border-transparent bg-zinc-900 px-4 py-3 text-sm text-white outline-none ring-0 transition focus:border-white-500 focus:bg-zinc-900 focus:ring-1 focus:ring-white-500"
                         />
                     </div>
 
@@ -116,7 +126,7 @@ function Contact() {
                         <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className="font-orbitron cursor-pointer rounded-md bg-red-600 px-10 py-3 text-sm font-semibold tracking-wide text-white shadow-md transition hover:bg-red-500 disabled:opacity-60"
+                            className="font-orbitron explore-button cursor-pointer rounded-md px-10 py-3 text-sm font-semibold tracking-wide text-white shadow-md transition disabled:opacity-60"
                         >
                             {status === 'loading' ? 'Sending...' : 'Send message'}
                         </button>
@@ -162,7 +172,7 @@ function Contact() {
 
                             <button
                                 onClick={() => setShowSuccess(false)}
-                                className="w-full rounded-full bg-red-600 px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition hover:bg-red-500"
+                                className="font-orbitron explore-button w-full cursor-pointer px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition"
                             >
                                 Close
                             </button>
@@ -173,7 +183,7 @@ function Contact() {
 
                 {showError && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-                        <div className="mx-4 max-w-sm rounded-3xl border border-red-800/60 bg-zinc-900/95 p-6 text-center shadow-2xl">
+                        <div className="mx-4 max-w-sm rounded-3xl border border-white-800/60 bg-zinc-900/95 p-6 text-center shadow-2xl">
                             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-600/15">
                                 <svg
                                     className="h-7 w-7 text-red-400"
@@ -194,13 +204,12 @@ function Contact() {
                                 MESSAGE NOT SENT
                             </h3>
                             <p className="mb-5 text-sm text-gray-300">
-                                Sorry, something went wrong while sending your message. Please check your
-                                connection and try again.
+                                {errorMessage}
                             </p>
 
                             <button
                                 onClick={() => setShowError(false)}
-                                className="w-full rounded-full bg-zinc-800 px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition hover:bg-zinc-700"
+                                className="font-orbitron explore-button w-full cursor-pointer px-4 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition"
                             >
                                 Close
                             </button>

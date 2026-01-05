@@ -1,8 +1,8 @@
-// layouts/MinimalLayout.jsx
+// layouts/BaseLayout.jsx
 import { Outlet, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 
-export default function MinimalLayout() {
+export default function BaseLayout() {
     const navigate = useNavigate()
 
     const handleBack = () => {
@@ -18,7 +18,7 @@ export default function MinimalLayout() {
     return (
         <div className="min-h-screen bg-black text-white">
             <header className="nav-link-font font-semibold flex items-center justify-between px-8 py-5.5">
-                <a href="/" className="nav-link-cursor  nav-link-font  text-gray-100 text-xl font-semibold tracking-[0.3em]">
+                <a href="/" className="nav-link-cursor font-logo text-xl tracking-[0.3em]">
                     ROAVAI
                 </a>
                 <button

@@ -2,7 +2,9 @@
 const express = require("express");
 const cors = require('cors')
 const { google } = require("googleapis");
+
 require("dotenv").config();
+
 
 const app = express();
 
@@ -14,6 +16,12 @@ app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body || {};
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Missing fields" });
+  }
+
+  const { Filter } = await import('bad-words');
+  const filter = new Filter();
+  if (filter.isProfane(message) || filter.isProfane(name)) {
+    return res.status(400).json({ error: "Profanity detected" });
   }
 
   try {
@@ -36,7 +44,8 @@ app.post("/api/contact", async (req, res) => {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
-      hour12: true
+      hour12: true,
+      timeZone: 'Asia/Kolkata'
     })
 
     const auth = new google.auth.GoogleAuth({
