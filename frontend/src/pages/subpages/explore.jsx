@@ -1,13 +1,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import FeatureCard from "../subpages/FeatureCard";
-import img2 from "../../assets/images/feature_voice_v1.png";
-import img3 from "../../assets/images/Explore_1.jpeg";
-import img4 from "../../assets/images/explore4.jpg";
-// import bgImage from "../../assets/images/dark_bg.png";
-
-
+import img3 from "../../assets/Images/Explore_1.jpeg";
+import img4 from "../../assets/Images/explore4.jpg";
 
 export default function Explore() {
 
