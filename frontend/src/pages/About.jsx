@@ -1,9 +1,42 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function About() {
     const [isWarping, setIsWarping] = useState(false)
     const navigate = useNavigate()
+
+    // Randomize comet positions periodically
+    useEffect(() => {
+        const randomizeComets = () => {
+            const comets = document.querySelectorAll('.comet')
+            comets.forEach((comet) => {
+                // Randomly choose between spawning from Top edge or Right edge
+                const fromTop = Math.random() > 0.5
+
+                if (fromTop) {
+                    // Spawn from Top edge
+                    const randomTop = Math.random() * 10 - 15 // -15% to -5% (Just above screen)
+                    const randomRight = Math.random() * 100 - 20 // -20% to 80% (Spread across width)
+                    comet.style.top = `${randomTop}%`
+                    comet.style.right = `${randomRight}%`
+                } else {
+                    // Spawn from Right edge
+                    const randomRight = Math.random() * 10 - 15 // -15% to -5% (Just right of screen)
+                    const randomTop = Math.random() * 80 - 10 // -10% to 70% (Spread across height)
+                    comet.style.top = `${randomTop}%`
+                    comet.style.right = `${randomRight}%`
+                }
+            })
+        }
+
+        // Initial randomization
+        randomizeComets()
+
+        // Re-randomize every 8 seconds
+        const interval = setInterval(randomizeComets, 8000)
+
+        return () => clearInterval(interval)
+    }, [])
 
     const handleExplore = (e) => {
         e.preventDefault()
@@ -21,6 +54,9 @@ function About() {
                 <div className="stars stars-small"></div>
                 <div className="stars stars-medium"></div>
                 <div className="stars stars-large"></div>
+                {/* Random comets */}
+                <div className="comet comet-1"></div>
+                <div className="comet comet-2"></div>
             </div>
 
             {/* Content */}

@@ -17,13 +17,13 @@ export default function BaseLayout() {
 
     return (
         <div className="min-h-screen bg-black text-white">
-            <header className="nav-link-font font-semibold flex items-center justify-between px-8 py-5.5">
-                <a href="/" className="nav-link-cursor font-logo text-xl tracking-[0.3em]">
+            <header className="nav-link-font font-semibold flex h-14 items-center justify-between px-4 md:px-8">
+                <a href="/" className="nav-link-cursor font-logo text-2xl md:text-3xl tracking-[0.1em]">
                     ROAVAI
                 </a>
                 <button
                     onClick={handleBack}
-                    className="nav-link-cursor text-sm tracking-wide underline underline-offset-4"
+                    className="nav-link-cursor nav-link-font text-base tracking-wide text-white/70 hover:text-white transition-colors flex items-center"
                 >
                     Back
                 </button>
