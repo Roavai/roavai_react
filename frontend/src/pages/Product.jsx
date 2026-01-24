@@ -110,14 +110,11 @@ const cardVariants = {
     return (
         <section
             className="relative min-h-screen w-full overflow-hidden"
-
         >
-
 
 
             {/* Main Content Container */}
             <div className="relative z-10 pt-20 mx-auto flex min-h-screen md:h-screen max-w-7xl flex-col md:flex-row items-center justify-center p-6 gap-8">
-
                 {/* --- DESKTOP: LEFT LIST (25%) --- */}
                 <div className="hidden md:flex w-full md:w-1/4 flex-col justify-center space-y-6">
                     {FEATURES.map((f) => (
@@ -146,7 +143,7 @@ const cardVariants = {
                 </div>
 
                 <div className="hidden md:block h-[60vh] aspect-[4/3]">
-                    <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] backdrop-blur-sm transition-all duration-500">
+                    <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.1)] backdrop-blur-sm transition-all duration-500">
                         {/* Image Slide */}
                        <AnimatePresence mode="wait">
                         <motion.div
@@ -156,7 +153,7 @@ const cardVariants = {
                             animate="center"
                             exit="exit"
                             transition={{
-                                duration: 0.8,
+                                duration: 0.5,
                                 ease: "easeInOut"
                             }}
                             className="absolute inset-0 h-full w-full transform-gpu z-0"
@@ -179,12 +176,12 @@ const cardVariants = {
                             animate="center"
                             exit="exit"
                             transition={{
-                                duration: 0.8,
+                                duration: 0.5,
                                 ease: "easeInOut"
                             }}
                             className="absolute bottom-0 left-0 right-0 z-10"
                         >
-                            <div className="bg-gradient-to-t from-black via-black/50 to-transparent px-12 pt-40 pb-4">
+                            <div className="bg-gradient-to-t from-black/90 via-black/60 to-transparent px-12 pt-40 pb-4">
                                 <p className="font-sans max-w-2xl text-base font-light text-gray-200 leading-snug">
                                     {active.description}
                                 </p>
