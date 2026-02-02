@@ -1,5 +1,8 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import { FEATURES } from '../utils/featuresData'
+
+import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 // Import assets
 
@@ -22,37 +25,106 @@ const FEATURE_IMAGES = [
 ]
 
 function Product() {
+    const intervalRef = useRef(null)
+
     const [activeId, setActiveId] = useState(0)
 
     const active = FEATURES.find((f) => f.id === activeId)
 
     const handleNext = () => {
         setActiveId((prev) => (prev + 1) % FEATURES.length)
+        startAutoPlay()
     }
 
     const handlePrev = () => {
         setActiveId((prev) =>
-            prev === 0 ? FEATURES.length - 1 : prev - 1
+            // prev === 0 ? FEATURES.length - 1 : prev - 1
+            setActiveId((prev) => (prev === 0 ? FEATURES.length - 1 : prev - 1))
         )
+        startAutoPlay()
     }
+
+
+    const startAutoPlay = () => {
+        // clear existing timer
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current)
+        }
+
+        // start new timer
+        intervalRef.current = setInterval(() => {
+            setActiveId((prev) => (prev + 1) % FEATURES.length)
+        }, 5000)
+    }
+
+
+
+    useEffect(() => {
+        startAutoPlay()
+
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current)
+            }
+        }
+    }, [])
+
+
+    const slideVariants = {
+        enter: {
+            x: -120,
+            opacity: 0,
+        },
+        center: {
+            x: 0,
+            opacity: 1,
+        },
+        exit: {
+            x: 120,
+            opacity: 0,
+        },
+    }
+
+    const cardVariants = {
+        enter: {
+            y: 0,
+            scale: 0.95,
+            opacity: 0,
+            zIndex: 0
+        },
+        center: {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            zIndex: 2
+        },
+        exit: {
+            y: 0,
+            scale: 0.95,
+            opacity: 0,
+            zIndex: 1
+        }
+    }
+
 
     return (
         <section
             className="relative min-h-screen w-full overflow-hidden"
-
         >
-
 
 
             {/* Main Content Container */}
             <div className="relative z-10 pt-20 mx-auto flex min-h-screen md:h-screen max-w-7xl flex-col md:flex-row items-center justify-center p-6 gap-8">
-
                 {/* --- DESKTOP: LEFT LIST (25%) --- */}
                 <div className="hidden md:flex w-full md:w-1/4 flex-col justify-center space-y-6">
                     {FEATURES.map((f) => (
                         <div
                             key={f.id}
-                            onMouseEnter={() => setActiveId(f.id)}
+                            // onMouseEnter={() => setActiveId(f.id)}
+                            onClick={() => {
+                                setActiveId(f.id)
+                                startAutoPlay() // reset timer 
+                            }}
                             className={`group flex cursor-pointer items-center gap-4 transition-all duration-300 ${f.id === activeId ? 'translate-x-4 opacity-100' : 'opacity-50 hover:opacity-80'
                                 }`}
                         >
@@ -71,21 +143,38 @@ function Product() {
                 </div>
 
                 <div className="hidden md:block h-[60vh] aspect-[4/3]">
-                    <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] backdrop-blur-sm transition-all duration-500">
-                        {/* Image Slide */}
-                        <img
-                            key={activeId} // Key change triggers animation
-                            src={FEATURE_IMAGES[activeId]}
-                            alt={active.title}
-                            className="h-full w-full object-cover opacity-90 transition-transform duration-700 hover:scale-105 animate-fadeIn"
-                        />
+                    <div className="relative h-full w-full">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeId}
+                                variants={cardVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeInOut"
+                                }}
+                                className="absolute inset-0 h-full w-full transform-gpu rounded-3xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.1)] backdrop-blur-sm isolate mask-[radial-gradient(white,black)]"
+                                style={{ transformOrigin: 'bottom center', willChange: 'transform' }}
+                            >
+                                {/* Image */}
+                                <img
+                                    src={FEATURE_IMAGES[activeId]}
+                                    alt={active.title}
+                                    className="h-full w-full object-cover"
+                                />
 
-                        {/* Description Overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent px-12 pt-40 pb-4">
-                            <p className="font-sans max-w-2xl text-base font-light text-gray-200 leading-snug">
-                                {active.description}
-                            </p>
-                        </div>
+                                {/* Description Overlay */}
+                                <div className="absolute bottom-0 left-0 right-0 z-10">
+                                    <div className="bg-gradient-to-t from-black/90 via-black/60 to-transparent px-12 pt-40 pb-4">
+                                        <p className="font-sans max-w-2xl text-base font-light text-gray-200 leading-snug">
+                                            {active.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
                 </div>
 
@@ -100,13 +189,27 @@ function Product() {
                     </div>
 
                     {/* Middle: Image Preview */}
-                    <div className="relative w-full h-72 sm:h-80 max-w-sm flex-none rounded-3xl overflow-hidden border border-white/20 shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
-                        <img
-                            key={activeId}
-                            src={FEATURE_IMAGES[activeId]}
-                            alt={active.title}
-                            className="h-full w-full object-cover animate-fadeIn"
-                        />
+                    <div className="relative w-full h-72 sm:h-80 max-w-lg flex-none rounded-3xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeId}
+                                variants={cardVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                                className="absolute inset-0 h-full w-full transform-gpu"
+                                style={{ transformOrigin: 'bottom center', willChange: 'transform' }}
+                            >
+                                <img
+                                    src={FEATURE_IMAGES[activeId]}
+                                    alt={active.title}
+                                    className="h-full w-full object-cover rounded-3xl"
+                                />
+                            </motion.div>
+                        </AnimatePresence>
+
+
                     </div>
 
                     {/* Mobile Description (Outside Box) */}
@@ -149,7 +252,7 @@ function Product() {
                     to { opacity: 1; }
                 }
                 .animate-fadeIn {
-                    animation: fadeIn 0.4s ease-out forwards;
+                    animation: fadeIn 0.2s ease-out forwards;
                 }
 
             `}</style>

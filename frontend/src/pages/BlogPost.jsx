@@ -21,17 +21,7 @@ function BlogPost() {
     return (
         <main className="min-h-screen bg-black text-white">
             <div className="mx-auto max-w-4xl px-6 py-20 md:py-28">
-                {/* Back Button */}
-                <motion.button
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    onClick={() => navigate(-1)}
-                    className="group mb-12 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-zinc-500 hover:text-white transition-colors cursor-pointer"
-                >
-                    <span className="font-bold group-hover:-translate-x-1 transition-transform duration-300">←</span>
-                    Back
-                </motion.button>
+
 
                 {/* Header Section */}
                 <motion.header

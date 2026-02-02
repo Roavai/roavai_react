@@ -126,7 +126,7 @@ function Contact() {
                         <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className="font-orbitron explore-button cursor-pointer rounded-md px-10 py-3 text-sm font-semibold tracking-wide text-white shadow-md transition disabled:opacity-60"
+                            className="font-orbitron explore-button cursor-pointer disabled:opacity-60"
                         >
                             {status === 'loading' ? 'Sending...' : 'Send message'}
                         </button>

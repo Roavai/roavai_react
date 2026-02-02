@@ -32,8 +32,8 @@ export default function Router() {
                     {/* add more minimal pages here */}
                 </Route>
 
-                {/* Blog post with only logo + footer*/}
-                <Route element={<BlogLayout />}>
+                {/* Blog post with only logo + footer - Now using BaseLayout for Back button consistency */}
+                <Route element={<BaseLayout />}>
                     <Route path="/blog/:slug" element={<BlogPost />} />
                 </Route>
             </Routes>
