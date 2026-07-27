@@ -1,25 +1,23 @@
-// src/pages/BlogPost.jsx
 import ReactMarkdown from 'react-markdown'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { posts } from '../utils/blogData'
 import BlogPostCard from '../components/BlogPostCard'
 
 function BlogPost() {
     const { slug } = useParams()
-    const navigate = useNavigate()
     const post = posts.find((p) => p.slug === slug)
 
     if (!post) {
         return (
-            <main className="min-h-[calc(100vh-4rem)] bg-black text-white flex items-center justify-center">
+            <div className="min-h-[calc(100vh-4rem)] bg-black text-white flex items-center justify-center">
                 <p>Post not found.</p>
-            </main>
+            </div>
         )
     }
 
     return (
-        <main className="min-h-screen bg-black text-white">
+        <article className="min-h-screen bg-black text-white">
             <div className="mx-auto max-w-4xl px-6 py-20 md:py-28">
 
 
@@ -46,7 +44,7 @@ function BlogPost() {
                         )}
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl font-orbitron font-extrabold tracking-tight leading-tight mb-8">
+                    <h1 className="text-4xl md:text-6xl font-primary font-extrabold tracking-tight leading-tight mb-8">
                         {post.title}
                     </h1>
 
@@ -78,7 +76,7 @@ function BlogPost() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="prose prose-invert max-w-none prose-lg 
-                        prose-headings:font-orbitron prose-headings:tracking-wide prose-headings:font-bold prose-headings:text-white
+                        prose-headings:font-primary prose-headings:tracking-wide prose-headings:font-bold prose-headings:text-white
                         prose-p:text-zinc-400 prose-p:leading-8
                         prose-a:text-red-500 prose-a:no-underline hover:prose-a:text-red-400 hover:prose-a:underline
                         prose-strong:text-white prose-strong:font-bold
@@ -105,7 +103,7 @@ function BlogPost() {
 
                 {/* All Posts Section */}
                 <section className="mt-32 pt-20 border-t border-zinc-800/50">
-                    <h2 className="font-orbitron text-2xl md:text-3xl font-bold mb-12 text-center tracking-[0.2em] text-white">
+                    <h2 className="font-primary text-2xl md:text-3xl font-bold mb-12 text-center tracking-[0.2em] text-white">
                         LATEST POSTS
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -117,7 +115,7 @@ function BlogPost() {
                     </div>
                 </section>
             </div>
-        </main>
+        </article>
     )
 }
 

@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 // Import assets
 
-import featureAi from '../assets/Images/feature_ai_v1.png'
-import featureVision from '../assets/Images/feature_vision_v1.png'
-import featureVoice from '../assets/Images/feature_voice_v1.png'
-import featureMotion from '../assets/Images/feature_motion_v1.png'
-import featureCharging from '../assets/Images/feature_charging_v1.png'
-import featureMapping from '../assets/Images/feature_mapping_v1.png'
+import featureAi from '../assets/Images/feature_ai_v1.webp'
+import featureVision from '../assets/Images/feature_vision_v1.webp'
+import featureVoice from '../assets/Images/feature_voice_v1.webp'
+import featureMotion from '../assets/Images/feature_motion_v1.webp'
+import featureCharging from '../assets/Images/feature_charging_v1.webp'
+import featureMapping from '../assets/Images/feature_mapping_v1.webp'
 
 
 // Mapping features to images
@@ -37,10 +37,7 @@ function Product() {
     }
 
     const handlePrev = () => {
-        setActiveId((prev) =>
-            // prev === 0 ? FEATURES.length - 1 : prev - 1
-            setActiveId((prev) => (prev === 0 ? FEATURES.length - 1 : prev - 1))
-        )
+        setActiveId((prev) => (prev === 0 ? FEATURES.length - 1 : prev - 1))
         startAutoPlay()
     }
 
@@ -68,22 +65,6 @@ function Product() {
             }
         }
     }, [])
-
-
-    const slideVariants = {
-        enter: {
-            x: -120,
-            opacity: 0,
-        },
-        center: {
-            x: 0,
-            opacity: 1,
-        },
-        exit: {
-            x: 120,
-            opacity: 0,
-        },
-    }
 
     const cardVariants = {
         enter: {
@@ -133,7 +114,7 @@ function Product() {
                                 }`} />
 
                             <div className="flex flex-col">
-                                <span className={`font-orbitron text-lg font-bold tracking-wider ${f.id === activeId ? 'text-white' : 'text-gray-400'}`}>
+                                <span className={`font-primary text-lg font-bold tracking-wider ${f.id === activeId ? 'text-white' : 'text-gray-400'}`}>
                                     {f.label}
                                 </span>
 
@@ -183,7 +164,7 @@ function Product() {
 
                     {/* Top: Navigation Title */}
                     <div className="w-full flex justify-center px-4 mb-2">
-                        <h2 className="font-orbitron text-sm font-bold text-white tracking-widest leading-tight animate-fadeIn">
+                        <h2 className="font-primary text-sm font-bold text-white tracking-widest leading-tight animate-fadeIn">
                             {active.label.toUpperCase()}
                         </h2>
                     </div>
@@ -245,17 +226,6 @@ function Product() {
 
             </div>
 
-            {/* Inline Animation Style for fade/slide effects */}
-            <style>{`
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-                .animate-fadeIn {
-                    animation: fadeIn 0.2s ease-out forwards;
-                }
-
-            `}</style>
         </section>
     )
 }

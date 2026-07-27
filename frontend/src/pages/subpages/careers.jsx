@@ -1,27 +1,6 @@
-// src/pages/Careers.jsx
-import { useState } from 'react'
-import { roles as rolesData } from '../../utils/careers'
-
-// function Careers() {
-// const [roles, setRoles] = useState(rolesData)
-// ...
-
 function Careers() {
-    // We can just use the data directly, or put it in state if we plan to filter it later.
-    // Simulating the "loading" state isn't strictly necessary for local data, but if we want to keep the UI structure:
-    const [roles] = useState(rolesData)
-    // removed loading state as data is instant
-    const loading = false
-    const error = null
-
-    const [expandedRole, setExpandedRole] = useState(null)
-
-    const toggleRole = (id) => {
-        setExpandedRole(prev => prev === id ? null : id)
-    }
-
     return (
-        <main className="min-h-screen bg-black text-white py-16 md:py-24">
+        <div className="min-h-screen bg-black text-white py-16 md:py-24">
             <div className="mx-auto max-w-6xl px-4">
                 <div className="grid gap-12 md:grid-cols-[1.1fr,2fr]">
                     {/* Main content */}
@@ -81,7 +60,7 @@ function Careers() {
 
                 </div>
             </div>
-        </main>
+        </div>
     )
 }
 

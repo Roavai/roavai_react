@@ -51,7 +51,7 @@ function BlogCarousel() {
             <div className="mx-auto max-w-7xl px-4">
                 {/* Centered heading */}
                 <div className="mb-10 text-center">
-                    <h2 className="font-orbitron text-3xl md:text-2xl font-extrabold tracking-[0.25em] mb-3">
+                    <h2 className="font-primary text-3xl md:text-2xl font-extrabold tracking-[0.25em] mb-3">
                         STORIES
                     </h2>
                 </div>
@@ -109,7 +109,7 @@ function BlogCarousel() {
                                             initial={{ opacity: 0, y: 16 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.7, ease: easing, delay: 0.15 }}
-                                            className="font-orbitron text-2xl md:text-3xl font-extrabold tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent"
+                                            className="font-primary text-2xl md:text-3xl font-extrabold tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent"
                                         >
                                             {post.title}
                                         </motion.h3>
@@ -124,7 +124,7 @@ function BlogCarousel() {
                                     >
                                         <Link
                                             to={`/blog/${post.slug}`}
-                                            className="font-orbitron explore-button justify-center"
+                                            className="font-primary explore-button justify-center"
                                         >
                                             Read article
                                         </Link>
@@ -184,7 +184,7 @@ function BlogCarousel() {
                     <div className="absolute -bottom-25 md:-bottom-12 w-full left-0 text-center md:w-auto md:left-auto md:right-1 md:text-right">
                         <Link
                             to="/blog"
-                            className="font-orbitron tracking-widest nav-link-cursor text-white text-xs"
+                            className="font-primary tracking-widest nav-link-cursor text-white text-xs"
                         >
                             <span className="md:hidden">Explore more stories →</span>
                             <span className="hidden md:inline">Explore more stories →</span>

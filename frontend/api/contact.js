@@ -1,32 +1,16 @@
 // api/contact.js
 import { google } from 'googleapis'
 import { Filter } from 'bad-words'
-
-
-function decodeBase64Json(b64) {
-    const json = Buffer.from(b64, 'base64').toString('utf8')
-    return JSON.parse(json)
-}
-
-let sheetsClient
-let credentials
-
-async function getSheetsClient() {
-    if (sheetsClient) return sheetsClient
-
-    credentials = decodeBase64Json(process.env.GOOGLE_CREDENTIALS_BASE64 || '')
-    const auth = new google.auth.GoogleAuth({
-        credentials, // use the outer variable
-        scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-    })
-    const authClient = await auth.getClient()
-    sheetsClient = google.sheets({ version: 'v4', auth: authClient })
-    return sheetsClient
-}
+import { checkRateLimit } from './_rateLimit.js'
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         res.status(405).json({ error: 'Method not allowed' })
+        return
+    }
+
+    if (!checkRateLimit(req, 5, 15 * 60 * 1000)) {
+        res.status(429).json({ error: 'Too many requests. Please try again later.' })
         return
     }
 

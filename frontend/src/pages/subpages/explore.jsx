@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import careersImage from "../../assets/Images/Explore_1.jpeg";
 import teamImage from "../../assets/Images/explore4.jpg";
 
@@ -17,7 +18,7 @@ export default function Explore() {
       className="min-h-screen text-white relative overflow-hidden rounded-2xl bg-black"
     >
       {/* Main Content */}
-      <main className="relative z-10 font-orbitron">
+      <div className="relative z-10 font-primary">
 
         {/* EXPLORE HERO INTRO */}
         <section className="w-full bg-black pt-32 pb-24">
@@ -28,7 +29,7 @@ export default function Explore() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-orbitron text-4xl md:text-6xl font-bold mb-5"
+              className="font-primary text-4xl md:text-6xl font-bold mb-5"
             >
               About Us
             </motion.h1>
@@ -77,7 +78,7 @@ export default function Explore() {
         <section className="px-6 md:px-12 lg:px-20 py-16 md:py-32">
           <div className="max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto">
 
-            <h2 className="font-orbitron text-4xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-14">
+            <h2 className="font-primary text-4xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-14">
               Our Story
             </h2>
 
@@ -108,7 +109,7 @@ export default function Explore() {
         <section className="px-6 md:px-12 lg:px-20 py-16 md:py-32">
           <div className="max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto">
 
-            <h2 className="font-orbitron text-4xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-14">
+            <h2 className="font-primary text-4xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-14">
               Our Mission
             </h2>
 
@@ -142,7 +143,7 @@ export default function Explore() {
           <div className="max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 lg:gap-24 items-start">
 
             <div>
-              <h2 className="font-orbitron text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8">
+              <h2 className="font-primary text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8">
                 The Technology
               </h2>
 
@@ -192,7 +193,7 @@ export default function Explore() {
 
           </div>
         </section>
-      </main>
+      </div>
 
       <section className="px-4 md:px-20 py-22" aria-labelledby="careers-heading">
         <div className="max-w-6xl mx-auto">
@@ -223,12 +224,12 @@ export default function Explore() {
                   for you at ROAVAI to help build the future of robotics and AI.
                 </p>
 
-                <a
-                  href="/careers"
-                  className="font-orbitron explore-button inline-flex items-center gap-3 px-8 py-4 text-sm uppercase tracking-widest cursor-pointer"
+                <Link
+                  to="/careers"
+                  className="font-primary explore-button inline-flex items-center gap-3 px-8 py-4 text-sm uppercase tracking-widest cursor-pointer"
                 >
                   Careers
-                </a>
+                </Link>
 
               </div>
             </div>

@@ -38,7 +38,7 @@ export default function GlowBackground() {
             </div>
 
             {/* 3. Subtle Grain/Noise for texture */}
-            <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150 mix-blend-overlay" />
+            <div className="absolute inset-0 opacity-[0.05] bg-[url('/noise.svg')] brightness-100 contrast-150 mix-blend-overlay" />
         </div>
     )
 }

@@ -7,12 +7,11 @@ function Footer() {
     const [showRocket, setShowRocket] = useState(false);
     const [showStars, setShowStars] = useState(false);
 
-    const handleLogoClick = (e) => {
-        e.preventDefault();
+    const handleLogoClick = () => {
         const newCount = clickCount + 1;
         setClickCount(newCount);
 
-        if (newCount >= 6) {
+        if (newCount >= 2) {
             setShowRocket(true);
             setClickCount(0);
             // Show stars when rocket almost vanishes (at 2s mark)
@@ -53,9 +52,14 @@ function Footer() {
                 <div className="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
-                            <Link to="/" className="flex items-start" onClick={handleLogoClick}>
+                            <button
+                                type="button"
+                                aria-label="Roavai Easter Egg"
+                                className="flex items-start cursor-pointer focus:outline-none"
+                                onClick={handleLogoClick}
+                            >
                                 <img src={ROAVAI} className="h-24 w-auto" alt="Roavai Logo" />
-                            </Link>
+                            </button>
                         </div>
                         <div className="nav-link-font grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                             <div>

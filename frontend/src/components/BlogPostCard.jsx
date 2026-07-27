@@ -1,20 +1,19 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 export default function BlogPostCard({ post }) {
     const [isExpanded, setIsExpanded] = useState(false)
-    const [timer, setTimer] = useState(null)
+    const timerRef = useRef(null)
 
     const handleMouseEnter = () => {
-        const t = setTimeout(() => {
+        timerRef.current = setTimeout(() => {
             setIsExpanded(true)
         }, 500)
-        setTimer(t)
     }
 
     const handleMouseLeave = () => {
-        if (timer) clearTimeout(timer)
+        if (timerRef.current) clearTimeout(timerRef.current)
         setIsExpanded(false)
     }
 
@@ -52,7 +51,9 @@ export default function BlogPostCard({ post }) {
                 <div className={`space-y-3 bg-black/80 backdrop-blur-sm p-4 -mx-4 rounded-xl transition-all duration-500 ${isExpanded ? 'bg-zinc-900/90 shadow-2xl ring-1 ring-white/10' : ''}`}>
                     <div className="flex items-center justify-between text-[11px] font-medium tracking-wider uppercase text-zinc-500">
                         <span>{post.date}</span>
-                        <span className={`text-zinc-600 transition-colors ${isExpanded ? 'text-white' : ''}`}>Read Article →</span>
+                        <span className={`text-zinc-600 transition-colors ${isExpanded ? 'text-white' : ''}`}>
+                            Read Article <span aria-hidden="true">→</span>
+                        </span>
                     </div>
 
                     <h3 className={`text-xl font-bold leading-tight text-white transition-colors ${isExpanded ? 'text-red-500' : ''}`}>

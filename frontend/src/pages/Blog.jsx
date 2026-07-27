@@ -1,7 +1,4 @@
-// src/pages/Blog.jsx
 import { useMemo } from 'react'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { posts } from '../utils/blogData'
 import BlogPostCard from '../components/BlogPostCard'
 
@@ -39,11 +36,11 @@ function Blog() {
     }
 
     return (
-        <main className="min-h-screen bg-black text-white py-24 md:py-32">
+        <div className="min-h-screen bg-black text-white py-24 md:py-32">
             <div className="mx-auto max-w-7xl px-6">
                 {/* Header */}
                 <header className="mb-20 text-center">
-                    <h1 className="font-orbitron text-4xl md:text-6xl font-extrabold tracking-[0.2em] mb-6">
+                    <h1 className="font-primary text-4xl md:text-6xl font-extrabold tracking-[0.2em] mb-6">
                         ARCHIVE
                     </h1>
                     <p className="max-w-2xl mx-auto text-zinc-400 text-sm md:text-base leading-relaxed">
@@ -60,10 +57,10 @@ function Blog() {
                             <section key={dateStr} className="relative">
                                 {/* Sticky Header */}
                                 <div className="flex items-end gap-3 mb-10">
-                                    <span className="font-orbitron text-sm md:text-base text-zinc-500 font-medium tracking-[0.2em] mb-3 md:mb-5 uppercase">
+                                    <span className="font-primary text-sm md:text-base text-zinc-500 font-medium tracking-[0.2em] mb-3 md:mb-5 uppercase">
                                         {small}
                                     </span>
-                                    <h2 className="font-orbitron text-5xl md:text-7xl font-bold text-zinc-800/50 select-none leading-none">
+                                    <h2 className="font-primary text-5xl md:text-7xl font-bold text-zinc-800/50 select-none leading-none">
                                         {big}
                                     </h2>
                                     <div className="h-px flex-1 bg-zinc-800/50 mb-4 md:mb-6" />
@@ -80,7 +77,7 @@ function Blog() {
                     })}
                 </div>
             </div>
-        </main>
+        </div>
     )
 }
 

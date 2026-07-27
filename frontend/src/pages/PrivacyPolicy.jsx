@@ -1,12 +1,9 @@
-import React from 'react';
-
-
 const PrivacyPolicy = () => {
     return (
         <>
             <div className="flex-grow container mx-auto px-4 py-8 mt-20 max-w-4xl">
                 <h1 className="text-3xl font-bold mb-6 text-primary-500">Privacy Policy</h1>
-                <p className="text-gray-400 mb-4">Last Updated: {new Date().toLocaleDateString()}</p>
+                <p className="text-gray-400 mb-4">Last Updated: January 1, 2026</p>
 
                 <section className="mb-8">
                     <h2 className="text-xl font-semibold mb-4 text-white">1. Introduction</h2>
