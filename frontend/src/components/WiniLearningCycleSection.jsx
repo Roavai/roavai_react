@@ -77,7 +77,7 @@ const STEPS = [
 
 export default function WiniLearningCycleSection() {
     return (
-        <section className="relative min-h-screen py-20 md:py-24 bg-[#faf9f5] text-slate-900 flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none">
+        <section className="relative min-h-screen py-20 md:py-24 bg-[#e8e2cd] text-slate-900 flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none">
             {/* Minimal Dot Matrix Pattern Overlay */}
             <div className="absolute inset-0 bg-[radial-gradient(#00000010_1px,transparent_1px)] [background-size:2rem_2rem] pointer-events-none z-0" aria-hidden="true" />
 
