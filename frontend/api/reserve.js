@@ -3,24 +3,36 @@ import { Filter } from 'bad-words'
 import { checkRateLimit } from './_rateLimit.js'
 
 function decodeBase64Json(b64) {
-    const json = Buffer.from(b64, 'base64').toString('utf8')
-    return JSON.parse(json)
+    if (!b64) return null
+    try {
+        const json = Buffer.from(b64, 'base64').toString('utf8')
+        return JSON.parse(json)
+    } catch {
+        return null
+    }
 }
 
 let sheetsClient
 let credentials
 
 async function getSheetsClient() {
-    if (sheetsClient) return sheetsClient
+    if (sheetsClient && credentials) return { sheetsClient, credentials }
 
     credentials = decodeBase64Json(process.env.GOOGLE_CREDENTIALS_BASE64 || '')
+    if (!credentials) {
+        throw new Error('GOOGLE_CREDENTIALS_BASE64 env var is missing or invalid Base64 JSON')
+    }
+    if (!credentials.sheet_id) {
+        throw new Error('sheet_id is missing inside GOOGLE_CREDENTIALS_BASE64 JSON')
+    }
+
     const auth = new google.auth.GoogleAuth({
         credentials,
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     })
     const authClient = await auth.getClient()
     sheetsClient = google.sheets({ version: 'v4', auth: authClient })
-    return sheetsClient
+    return { sheetsClient, credentials }
 }
 
 export default async function handler(req, res) {
@@ -74,11 +86,10 @@ export default async function handler(req, res) {
     })
 
     try {
-        const sheets = await getSheetsClient()
-        const sheetId = credentials.sheet_id
+        const { sheetsClient: sheets, credentials: creds } = await getSheetsClient()
 
         await sheets.spreadsheets.values.append({
-            spreadsheetId: sheetId,
+            spreadsheetId: creds.sheet_id,
             range: 'Reservations!A:I',
             valueInputOption: 'USER_ENTERED',
             requestBody: {
@@ -89,7 +100,7 @@ export default async function handler(req, res) {
         res.status(200).json({ ok: true })
     } catch (err) {
         console.error('Google Sheets Reservation Write Error:', err)
-        res.status(500).json({ error: 'Reservation sheet write failed' })
+        res.status(500).json({ error: err.message || 'Reservation sheet write failed' })
     }
 }
 

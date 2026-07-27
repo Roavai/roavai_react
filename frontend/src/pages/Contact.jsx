@@ -30,7 +30,7 @@ function Contact() {
         }
 
         if (!payload.name || !payload.email || !payload.message) return
-        if (payload.name.length > 25 || payload.message.length > 1000) return
+        if (payload.name.length > 80 || payload.message.length > 1000) return
 
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
