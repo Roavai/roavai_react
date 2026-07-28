@@ -77,7 +77,7 @@ const STEPS = [
 
 export default function WiniLearningCycleSection() {
     return (
-        <section className="relative min-h-screen py-20 md:py-24 bg-[#e8e2cd] text-slate-900 flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none">
+        <section className="relative min-h-screen py-20 md:py-24 bg-[#F5CBCB] text-slate-900 flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none">
             {/* Minimal Dot Matrix Pattern Overlay */}
             <div className="absolute inset-0 bg-[radial-gradient(#00000010_1px,transparent_1px)] [background-size:2rem_2rem] pointer-events-none z-0" aria-hidden="true" />
 
@@ -135,12 +135,23 @@ export default function WiniLearningCycleSection() {
                                 </p>
                             )}
 
-                            {/* Desktop Forward Connecting Arrow */}
+                            {/* Forward Connecting Arrow (Desktop) */}
                             {idx < STEPS.length - 1 && (
-                                <div className="hidden lg:block absolute top-10 -right-4 -translate-y-1/2 text-slate-300 z-20">
-                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75">
+                                <div className="hidden lg:flex absolute top-8 sm:top-10 -right-4 lg:-right-5 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm border border-slate-900/15 items-center justify-center text-slate-900 shadow-sm z-20 pointer-events-none">
+                                    <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                     </svg>
+                                </div>
+                            )}
+
+                            {/* Downward Connecting Arrow (Mobile/Tablet) */}
+                            {idx < STEPS.length - 1 && (
+                                <div className="flex lg:hidden justify-center my-3 text-slate-900 pointer-events-none">
+                                    <div className="w-7 h-7 rounded-full bg-white/80 backdrop-blur-sm border border-slate-900/15 flex items-center justify-center text-slate-900 shadow-sm">
+                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                                        </svg>
+                                    </div>
                                 </div>
                             )}
                         </motion.div>

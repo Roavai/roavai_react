@@ -78,7 +78,7 @@ export default function CloudTutorOverview() {
     const [hoveredId, setHoveredId] = useState(null)
 
     return (
-        <section className="relative min-h-screen md:h-screen pt-20 md:pt-24 pb-12 md:pb-8 overflow-x-hidden md:overflow-hidden bg-[#f2ebd4] text-black flex flex-col justify-center items-center px-4 sm:px-12 md:px-16 lg:px-24">
+        <section className="relative min-h-screen md:h-screen pt-20 md:pt-24 pb-12 md:pb-8 overflow-x-hidden md:overflow-hidden bg-[#FFDDB0] text-black flex flex-col justify-center items-center px-4 sm:px-12 md:px-16 lg:px-24">
             {/* Layer 0: Minimal Geometry Dot Matrix Pattern Overlay */}
             <div className="absolute inset-0 bg-[radial-gradient(#00000018_1px,transparent_1px)] [background-size:2rem_2rem] pointer-events-none z-0" />
 
